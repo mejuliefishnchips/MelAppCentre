@@ -1,0 +1,11 @@
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\bin\Debug\MelindaFischerAssessment2.exe.config
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\bin\Debug\MelindaFischerAssessment2.exe
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\bin\Debug\MelindaFischerAssessment2.pdb
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.csprojAssemblyReference.cache
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.Properties.Resources.resources
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.csproj.GenerateResource.cache
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.csproj.CoreCompileInputs.cache
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.exe
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.pdb
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.mainFrm.resources
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.frmPaint.resources

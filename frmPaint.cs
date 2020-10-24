@@ -354,7 +354,7 @@ namespace MelindaFischerAssessment2
             
 
         }
-         //checking git ahgf'f
+         
         private void btnClearCanvas_Click(object sender, EventArgs e)
         {
             if (canvas.Image == drawImage)
@@ -370,6 +370,8 @@ namespace MelindaFischerAssessment2
             lblFile.Text = "Drag and Drop Image to set as Background";
             
             canvas.Refresh();
+
+            ///trying github 
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MelindaFischerAssessment2
 {
-    public partial class mainFrm : Form
+    public partial class frmMain : Form
     {
-        public mainFrm()
+        public frmMain()
         {
             InitializeComponent();
         }
@@ -26,6 +26,12 @@ namespace MelindaFischerAssessment2
         {
             frmPaint myPaint = new frmPaint();
             myPaint.ShowDialog();
+        }
+
+        private void btnAdventureGame_Click(object sender, EventArgs e)
+        {
+            frmAdventureGame myGame = new frmAdventureGame();
+            myGame.ShowDialog();
         }
     }
 }

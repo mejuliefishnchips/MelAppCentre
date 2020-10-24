@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mainFrm.cs">
+    <Compile Include="frmAdventureGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainFrm.Designer.cs">
-      <DependentUpon>mainFrm.cs</DependentUpon>
+    <Compile Include="frmAdventureGame.Designer.cs">
+      <DependentUpon>frmAdventureGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPaint.cs">
       <SubType>Form</SubType>
@@ -60,8 +66,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="mainFrm.resx">
-      <DependentUpon>mainFrm.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPaint.resx">
       <DependentUpon>frmPaint.cs</DependentUpon>
@@ -87,6 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.csproj">
+      <Project>{510720e7-e0f3-499f-b9d9-258f466790fb}</Project>
+      <Name>Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

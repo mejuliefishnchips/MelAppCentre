@@ -1,6 +1,6 @@
 ﻿namespace MelindaFischerAssessment2
 {
-    partial class mainFrm
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.btnExit = new System.Windows.Forms.Button();
             this.btnPaint = new System.Windows.Forms.Button();
+            this.btnAdventureGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnExit
@@ -52,14 +53,25 @@
             this.btnPaint.UseVisualStyleBackColor = true;
             this.btnPaint.Click += new System.EventHandler(this.btnPaint_Click);
             // 
-            // Form1
+            // btnAdventureGame
+            // 
+            this.btnAdventureGame.Location = new System.Drawing.Point(323, 131);
+            this.btnAdventureGame.Name = "btnAdventureGame";
+            this.btnAdventureGame.Size = new System.Drawing.Size(240, 60);
+            this.btnAdventureGame.TabIndex = 2;
+            this.btnAdventureGame.Text = "Adventure Game";
+            this.btnAdventureGame.UseVisualStyleBackColor = true;
+            this.btnAdventureGame.Click += new System.EventHandler(this.btnAdventureGame_Click);
+            // 
+            // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAdventureGame);
             this.Controls.Add(this.btnPaint);
             this.Controls.Add(this.btnExit);
-            this.Name = "Form1";
+            this.Name = "mainFrm";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnPaint;
+        private System.Windows.Forms.Button btnAdventureGame;
     }
 }
 

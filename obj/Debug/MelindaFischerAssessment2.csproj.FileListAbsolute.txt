@@ -7,5 +7,8 @@ C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\Melinda
 C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.csproj.CoreCompileInputs.cache
 C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.exe
 C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.pdb
-C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.mainFrm.resources
 C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.frmPaint.resources
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\bin\Debug\Engine.dll
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\bin\Debug\Engine.pdb
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.frmMain.resources
+C:\Users\MelindaFischer\source\repos\MelindaFischerAssessment2\obj\Debug\MelindaFischerAssessment2.csproj.CopyComplete

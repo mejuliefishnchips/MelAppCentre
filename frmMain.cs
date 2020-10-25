@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Collections;
+using System.Diagnostics;
 
 namespace MelindaFischerAssessment2
 {
@@ -26,6 +27,7 @@ namespace MelindaFischerAssessment2
     {
         //Form-wide variables
 
+        string animalFile;
         string[] animals = new string[15];
         int tracker = 0;
         int numberTracker = 0;
@@ -85,94 +87,129 @@ namespace MelindaFischerAssessment2
         //Loading animal text file into the array and displaying it in the listbox
         private void btnLoadAnimals_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Please select the text file called animals.txt located in bin/debug","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             btnLoadAnimals.Enabled = false;
-            listBoxArray.BackColor = System.Drawing.Color.Orchid;
-            string animalFile = "C:/Users/MelindaFischer/source/repos/MelindaFischerAssessment2/bin/Debug/animals.txt";
 
-            FileStream input = new FileStream(animalFile, FileMode.Open, FileAccess.Read);
 
-            fileReader = new StreamReader(input);
+            // Set filter for open file dialog
+            dlgOpen.Filter = "Text files (*.txt) | *.txt";
+            dlgOpen.FileName = "Select File";
 
-            tracker = 0;
-
-            //Get next record from file
-            while (!fileReader.EndOfStream)
+            // Capture file name from open file dialog
+            if (dlgOpen.ShowDialog() != DialogResult.Cancel)
             {
-                string inputAnimals = fileReader.ReadLine();
+                btnOpenAmount.Enabled = true;
+                animalFile = dlgOpen.FileName;
 
-                animals[tracker] = ((inputAnimals));
-                tracker++;
+
+                FileStream input = new FileStream(animalFile, FileMode.Open, FileAccess.Read);
+
+                fileReader = new StreamReader(input);
+
+                tracker = 0;
+
+                //Get next record from file
+                while (!fileReader.EndOfStream)
+                {
+                    string inputAnimals = fileReader.ReadLine();
+
+                    animals[tracker] = ((inputAnimals));
+                    tracker++;
+                }
+
+                //Close StreamReader and associated file
+                fileReader.Close();
+
+                listBoxArray.BackColor = System.Drawing.Color.Orchid;
+
+                foreach (var element in animals)
+                {
+                    listBoxArray.Items.Add(element);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnLoadAnimals.Enabled = true;
             }
 
-            //Close StreamReader and associated file
-            fileReader.Close();
-
-            
-            foreach (var element in animals)
-            {
-                listBoxArray.Items.Add(element);
-            }
-            
         }
 
         // Loading animal and number text file into instances of the class Animal and displaying it in the list box 
         private void btnOpenAmount_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Please select the text file called numberOfAnimals.txt located in bin/debug", "Information",MessageBoxButtons.OK, MessageBoxIcon.Information );
             btnOpenAmount.Enabled = false;
-            listBoxAmount.BackColor = System.Drawing.Color.Orchid;
+            
+                string animalFile = dlgOpen.FileName;
 
-            string animalFile = "C:/Users/MelindaFischer/source/repos/MelindaFischerAssessment2/bin/Debug/animals.txt";
-            string numberFile = "C:/Users/MelindaFischer/source/repos/MelindaFischerAssessment2/bin/Debug/numberOfAnimals.txt";
+                //Opening animal file to load into array
+                FileStream input = new FileStream(animalFile, FileMode.Open, FileAccess.Read);
 
-            //Opening animal file to load into array
-            FileStream input = new FileStream(animalFile, FileMode.Open, FileAccess.Read);
+                fileReader = new StreamReader(input);
+                tracker = 0;
 
-            fileReader = new StreamReader(input);
-            tracker = 0;
+                //Get next record from file
+                while (!fileReader.EndOfStream)
+                {
+                    string inputAnimals = fileReader.ReadLine();
+                    //Loading line by line animals into array
+                    animals[tracker] = ((inputAnimals));
+                    tracker++;
+                }
 
-            //Get next record from file
-            while (!fileReader.EndOfStream)
+                //Close StreamReader and associated file
+                fileReader.Close();
+            
+        
+            // Set filter for open file dialog
+            dlgOpen.Filter = "Text files (*.txt) | *.txt";
+            dlgOpen.FileName = "Select File";
+
+            // Capture file name from open file dialog
+            if (dlgOpen.ShowDialog() != DialogResult.Cancel)
             {
-                string inputAnimals = fileReader.ReadLine();
-                //Loading line by line animals into array
-                animals[tracker] = ((inputAnimals));
-                tracker++;
+                string numberFile = dlgOpen.FileName;
+                //opening number file to load into array
+                FileStream input2 = new FileStream(numberFile, FileMode.Open, FileAccess.Read);
+
+                fileReader = new StreamReader(input2);
+
+                //Get next record from file
+                while (!fileReader.EndOfStream)
+                {
+                    string inputNumbers = fileReader.ReadLine();
+
+                    numberOfAnimals[numberTracker] = (Convert.ToInt32(inputNumbers));
+                    numberTracker++;
+                }
+
+                //Close StreamReader and associated file
+                fileReader.Close();
+                listBoxAmount.BackColor = System.Drawing.Color.Orchid;
+
+                //save name and amount into instances of the Animal List
+                for (int i = 0; i < 15; i++)
+                {
+                    animalsList.Add(new Animal() { name = animals[i], amount = numberOfAnimals[i] });
+                }
+
+                //display animalList in the listbox
+                foreach (var element in animalsList)
+                {
+                    listBoxAmount.Items.Add(element);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnOpenAmount.Enabled = true;
+            }
+               
             }
 
-            //Close StreamReader and associated file
-            fileReader.Close();
-
-            //opening number file to load into array
-            FileStream input2 = new FileStream(numberFile, FileMode.Open, FileAccess.Read);
-
-            fileReader = new StreamReader(input2);
-
-            //Get next record from file
-            while (!fileReader.EndOfStream)
-            {
-                string inputNumbers = fileReader.ReadLine();
-
-                numberOfAnimals[numberTracker] = (Convert.ToInt32(inputNumbers));
-                numberTracker++;
-            }
-
-            //Close StreamReader and associated file
-            fileReader.Close();
-
-            //save name and amount into instances of the Animal List
-            for (int i = 0; i < 15; i++)
-            {
-                animalsList.Add(new Animal() { name = animals[i], amount = numberOfAnimals[i] });
-            }
-
-            //display animalList in the listbox
-            foreach (var element in animalsList)
-            {
-                listBoxAmount.Items.Add(element);
-            }
-
-        }
-
+        
         //Opening Avatar Form
         private void btnAvatar_Click(object sender, EventArgs e)
         {
@@ -182,7 +219,7 @@ namespace MelindaFischerAssessment2
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            btnSort.Enabled = false;
+        
             // clear listbox and display back color of listbox in green -> sorted 
             listBoxAmount.Items.Clear();
             listBoxAmount.BackColor = System.Drawing.Color.LightGreen;
@@ -205,6 +242,11 @@ namespace MelindaFischerAssessment2
             {
                 listBoxAmount.Items.Add(element);
             }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            btnOpenAmount.Enabled = false;
         }
     }
     }

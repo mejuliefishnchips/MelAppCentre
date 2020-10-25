@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSort = new System.Windows.Forms.Button();
+            this.dlgOpen2 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // btnExit
@@ -68,7 +69,7 @@
             // 
             // btnAvatar
             // 
-            this.btnAvatar.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnAvatar.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAvatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAvatar.Location = new System.Drawing.Point(372, 26);
             this.btnAvatar.Name = "btnAvatar";
@@ -94,11 +95,11 @@
             // 
             // btnLoadAnimals
             // 
-            this.btnLoadAnimals.BackColor = System.Drawing.Color.Violet;
+            this.btnLoadAnimals.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnLoadAnimals.Location = new System.Drawing.Point(376, 197);
             this.btnLoadAnimals.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLoadAnimals.Name = "btnLoadAnimals";
-            this.btnLoadAnimals.Size = new System.Drawing.Size(174, 46);
+            this.btnLoadAnimals.Size = new System.Drawing.Size(174, 51);
             this.btnLoadAnimals.TabIndex = 4;
             this.btnLoadAnimals.Text = "Show me the animals";
             this.btnLoadAnimals.UseVisualStyleBackColor = false;
@@ -106,11 +107,11 @@
             // 
             // btnOpenAmount
             // 
-            this.btnOpenAmount.BackColor = System.Drawing.Color.Violet;
-            this.btnOpenAmount.Location = new System.Drawing.Point(376, 253);
+            this.btnOpenAmount.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnOpenAmount.Location = new System.Drawing.Point(377, 258);
             this.btnOpenAmount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOpenAmount.Name = "btnOpenAmount";
-            this.btnOpenAmount.Size = new System.Drawing.Size(173, 49);
+            this.btnOpenAmount.Size = new System.Drawing.Size(173, 57);
             this.btnOpenAmount.TabIndex = 5;
             this.btnOpenAmount.Text = "Show me the amount of animals";
             this.btnOpenAmount.UseVisualStyleBackColor = false;
@@ -148,13 +149,17 @@
             // btnSort
             // 
             this.btnSort.BackColor = System.Drawing.Color.Plum;
-            this.btnSort.Location = new System.Drawing.Point(376, 311);
+            this.btnSort.Location = new System.Drawing.Point(376, 323);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(172, 48);
             this.btnSort.TabIndex = 9;
             this.btnSort.Text = "Sort for Me!";
             this.btnSort.UseVisualStyleBackColor = false;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            // 
+            // dlgOpen2
+            // 
+            this.dlgOpen2.FileName = "openFileDialog1";
             // 
             // frmMain
             // 
@@ -175,6 +180,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Melinda\'s Little App Centre";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,6 +199,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSort;
+        private System.Windows.Forms.OpenFileDialog dlgOpen2;
     }
 }
 

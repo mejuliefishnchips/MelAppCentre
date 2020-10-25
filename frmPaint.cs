@@ -1,4 +1,15 @@
-﻿using System;
+﻿//****************************************************************
+// Programmer: Melinda Fischer
+// CIT Number: CIT245143
+// Date: 25 September 2020
+// Software: Microsoft Visual Studio 2019 Community Edition 
+// Platform: Microsoft Windows 10 Professional 64-bit 
+// Purpose: Assignment2 - Paint Application
+// Criteria Shown: Drawing 2D Graphics 
+// References: Class notes, stackoverflow, scottlily.com, Microsoft Docs
+//**************************************************************** 
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,7 +46,7 @@ namespace MelindaFischerAssessment2
         Graphics global;
 
         Bitmap imageBackground;
-      //Image imageBackground;
+      
        
         Brush myBrush = new SolidBrush(Color.Pink);
         Point lastPoint;
@@ -52,7 +63,7 @@ namespace MelindaFischerAssessment2
 
             p.FillRectangle(Brushes.White, 0, 0, width, height);
 
-            canvas.BackgroundImage = paintImage;
+            canvas.Image = paintImage;
 
             canvas.MouseDown += new MouseEventHandler(Canvas_MouseDown);
             canvas.MouseMove += new MouseEventHandler (Canvas_MouseMove);
@@ -69,29 +80,13 @@ namespace MelindaFischerAssessment2
                 //Draw again to get the shape without border
                 DrawShapeInWorkingImage(e.Location);
                 
-                /*
-                if (canvas.Image == drawImage)
-                    global = drawGraphics;
-                else if (canvas.Image == imageBackground)
-                {
-                    paintImage = new Bitmap(imageBackground);
-                    p = Graphics.FromImage(imageBackground);
-                }
-                else if (canvas.Image == paintImage)
-                {
-                    paintImage = new Bitmap(workingImage);
-                    p = Graphics.FromImage(paintImage);
-                }
-                else
-                    global = workingGraphics;
-                */
 
                 paintImage = new Bitmap(workingImage);
 
                 p = Graphics.FromImage(paintImage);
 
               canvas.Image = paintImage;
-               // canvas.Refresh();
+              canvas.Refresh();
 
             }
            
@@ -153,32 +148,6 @@ namespace MelindaFischerAssessment2
 
             int shapeWidth = (lastPoint.X > currentPoint.X ? lastPoint.X : currentPoint.X) - startPointX;
             int shapeHeight = (lastPoint.Y > currentPoint.Y ? lastPoint.Y : currentPoint.Y) - startPointY;
-            /*
-            if (canvas.Image == drawImage)
-            {
-                global = drawGraphics;
-                workingImage = drawImage;
-                canvas.Refresh();
-            }
-            else if (canvas.Image == imageBackground)
-            {
-                global = h;
-                workingImage = imageBackground;
-                canvas.Refresh();
-            }
-            else if (canvas.Image == paintImage)
-            {
-                global = p;
-                workingImage = paintImage;
-                canvas.Refresh();
-            }
-            else
-            {
-                global = workingGraphics;
-                canvas.Refresh();
-
-            }
-            */
 
             switch (selectedSetting.Text)
             {

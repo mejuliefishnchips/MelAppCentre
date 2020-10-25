@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "tiYUntwAZX9EY4w+Vgnli2onF4hdkYygw7jtOtaAX1xd1QsJdUw4LvVpJ1F0IPfsMGsiIDlySilT9SV9l8b7lA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MelindaFischer\\source\\repos\\Engine\\Engine.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MelindaFischer\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\MelindaFischer\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

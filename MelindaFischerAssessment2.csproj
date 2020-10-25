@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAdventureGame.cs">
+    <Compile Include="Avatar.cs" />
+    <Compile Include="frmAvatar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdventureGame.Designer.cs">
-      <DependentUpon>frmAdventureGame.cs</DependentUpon>
+    <Compile Include="frmAvatar.Designer.cs">
+      <DependentUpon>frmAvatar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -66,8 +67,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAdventureGame.resx">
-      <DependentUpon>frmAdventureGame.cs</DependentUpon>
+    <EmbeddedResource Include="frmAvatar.resx">
+      <DependentUpon>frmAvatar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -96,12 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Engine\Engine.csproj">
-      <Project>{510720e7-e0f3-499f-b9d9-258f466790fb}</Project>
-      <Name>Engine</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

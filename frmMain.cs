@@ -30,8 +30,8 @@ namespace MelindaFischerAssessment2
 
         private void btnAdventureGame_Click(object sender, EventArgs e)
         {
-            frmAdventureGame myGame = new frmPaint();
-            myPaint.ShowDialog();
+            frmAvatar myAvatar = new frmAvatar();
+            myAvatar.ShowDialog();
         }
     }
 }

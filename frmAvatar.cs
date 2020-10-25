@@ -58,8 +58,7 @@ namespace MelindaFischerAssessment2
             //validating that all fields have been filled out and age is an integer
             if ((txtName.Text != "") && (txtAge.Text != "") && (Int32.TryParse(txtAge.Text, out var outParse)))
             {
-
-                personalInfo.age = int.Parse(txtAge.Text);
+                personalInfo.age = Convert.ToInt32(txtAge.Text);
                 personalInfo.name = txtName.Text;
 
                 txtResult.Text = "Success!\nYou are " + avatar.avatarName + ".\nYour name is " + personalInfo.name + " and you are " + personalInfo.age + " years old.";
@@ -73,5 +72,7 @@ namespace MelindaFischerAssessment2
             }
             
         }
+
+        
     }
 }

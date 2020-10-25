@@ -1,4 +1,14 @@
-﻿using System;
+﻿//****************************************************************
+// Programmer: Melinda Fischer
+// CIT Number: CIT245143
+// Date: 25 September 2020
+// Software: Microsoft Visual Studio 2019 Community Edition 
+// Platform: Microsoft Windows 10 Professional 64-bit 
+// Purpose: Assignment2 - Main Menu to get into Paint and Avatar Selection
+// Criteria Shown: Comparators
+// References: Class notes, stackoverflow, Microsoft Docs, dotnetperls
+//**************************************************************** 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +24,18 @@ namespace MelindaFischerAssessment2
 {
     public partial class frmMain : Form
     {
+        //Form-wide variables
+
+        string[] animals = new string[15];
+        int tracker = 0;
+        int numberTracker = 0;
+        int[] numberOfAnimals = new int[15];
+        private StreamReader fileReader; //Reads data from textfile
         List<Animal> animalsList = new List<Animal>();
         IComparer arrayCompare = new arrayComparer();
 
+
+        //setting up the class Animal that will use IComparable to sort through instances of the type Animal
         class Animal : IComparable<Animal>
         {
             public string name { get; set; }
@@ -37,6 +56,7 @@ namespace MelindaFischerAssessment2
             }
         }
 
+        // setting up the class arrayComparer that will use IComparer to sort through a 1d array
         public class arrayComparer : IComparer
         {
             public int Compare(Object x, Object z)
@@ -45,124 +65,146 @@ namespace MelindaFischerAssessment2
             }
         }
 
-
-        private StreamReader fileReader; //Reads data from textfile
-        //Form-wide variables
-        
-        string[] animals = new string[15];
-        int tracker = 0;
-        int numberTracker = 0;
-        int[] numberOfAnimals = new int[15];
-
         public frmMain()
         {
             InitializeComponent();
         }
 
-        
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //Opening Paint form
         private void btnPaint_Click(object sender, EventArgs e)
         {
             frmPaint myPaint = new frmPaint();
             myPaint.ShowDialog();
         }
 
-        private void btnAdventureGame_Click(object sender, EventArgs e)
+        //Loading animal text file into the array and displaying it in the listbox
+        private void btnLoadAnimals_Click(object sender, EventArgs e)
         {
-            frmAvatar myAvatar = new frmAvatar();
-            myAvatar.ShowDialog();
-        }
-
-        private void btnOpen_Click(object sender, EventArgs e)
-        {
+            btnLoadAnimals.Enabled = false;
+            listBoxArray.BackColor = System.Drawing.Color.Orchid;
             string animalFile = "C:/Users/MelindaFischer/source/repos/MelindaFischerAssessment2/bin/Debug/animals.txt";
-            string numberFile = "C:/Users/MelindaFischer/source/repos/MelindaFischerAssessment2/bin/Debug/numberOfAnimals.txt";
-
 
             FileStream input = new FileStream(animalFile, FileMode.Open, FileAccess.Read);
 
             fileReader = new StreamReader(input);
 
+            tracker = 0;
 
             //Get next record from file
             while (!fileReader.EndOfStream)
             {
                 string inputAnimals = fileReader.ReadLine();
 
-
                 animals[tracker] = ((inputAnimals));
-              //  listBoxAnimals.Items.Add(animals[tracker]);
                 tracker++;
             }
 
             //Close StreamReader and associated file
             fileReader.Close();
 
+            
+            foreach (var element in animals)
+            {
+                listBoxArray.Items.Add(element);
+            }
+            
+        }
+
+        // Loading animal and number text file into instances of the class Animal and displaying it in the list box 
+        private void btnOpenAmount_Click(object sender, EventArgs e)
+        {
+            btnOpenAmount.Enabled = false;
+            listBoxAmount.BackColor = System.Drawing.Color.Orchid;
+
+            string animalFile = "C:/Users/MelindaFischer/source/repos/MelindaFischerAssessment2/bin/Debug/animals.txt";
+            string numberFile = "C:/Users/MelindaFischer/source/repos/MelindaFischerAssessment2/bin/Debug/numberOfAnimals.txt";
+
+            //Opening animal file to load into array
+            FileStream input = new FileStream(animalFile, FileMode.Open, FileAccess.Read);
+
+            fileReader = new StreamReader(input);
+            tracker = 0;
+
+            //Get next record from file
+            while (!fileReader.EndOfStream)
+            {
+                string inputAnimals = fileReader.ReadLine();
+                //Loading line by line animals into array
+                animals[tracker] = ((inputAnimals));
+                tracker++;
+            }
+
+            //Close StreamReader and associated file
+            fileReader.Close();
+
+            //opening number file to load into array
             FileStream input2 = new FileStream(numberFile, FileMode.Open, FileAccess.Read);
 
             fileReader = new StreamReader(input2);
-
 
             //Get next record from file
             while (!fileReader.EndOfStream)
             {
                 string inputNumbers = fileReader.ReadLine();
 
-
                 numberOfAnimals[numberTracker] = (Convert.ToInt32(inputNumbers));
-                //listBoxNumbers.Items.Add(numberOfAnimals[numberTracker]);
                 numberTracker++;
             }
 
             //Close StreamReader and associated file
             fileReader.Close();
 
-            //save t
-            for (int i = 0; i<15; i++)
-            { 
+            //save name and amount into instances of the Animal List
+            for (int i = 0; i < 15; i++)
+            {
                 animalsList.Add(new Animal() { name = animals[i], amount = numberOfAnimals[i] });
             }
 
-            animalsList.Sort();
-            
+            //display animalList in the listbox
             foreach (var element in animalsList)
             {
-                listBoxAnimals.Items.Add(element);
+                listBoxAmount.Items.Add(element);
             }
+
         }
 
-        private void btnOpenNumber_Click(object sender, EventArgs e)
+        //Opening Avatar Form
+        private void btnAvatar_Click(object sender, EventArgs e)
         {
-            string animalFile = "C:/Users/MelindaFischer/source/repos/MelindaFischerAssessment2/bin/Debug/animals.txt";
-           
-            FileStream input = new FileStream(animalFile, FileMode.Open, FileAccess.Read);
+            frmAvatar myAvatar = new frmAvatar();
+            myAvatar.ShowDialog();
+        }
 
-            fileReader = new StreamReader(input);
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+            btnSort.Enabled = false;
+            // clear listbox and display back color of listbox in green -> sorted 
+            listBoxAmount.Items.Clear();
+            listBoxAmount.BackColor = System.Drawing.Color.LightGreen;
 
+            listBoxArray.Items.Clear();
+            listBoxArray.BackColor = System.Drawing.Color.LightGreen;
 
-            //Get next record from file
-            while (!fileReader.EndOfStream)
-            {
-                string inputAnimals = fileReader.ReadLine();
-                
-                animals[tracker] = ((inputAnimals));
-                tracker++;
-            }
-
-            //Close StreamReader and associated file
-            fileReader.Close();
-
+            // Sort the entire array by using custom comparer.
             Array.Sort(animals, arrayCompare);
+            //display animal array in listbox after being sorted
             foreach (var element in animals)
             {
-                listBoxAnimals.Items.Add(element);
+                listBoxArray.Items.Add(element);
             }
 
-
+            // Uses IComparable.CompareTo()
+            animalsList.Sort();
+            //display animalList in the listbox after being sorted
+            foreach (var element in animalsList)
+            {
+                listBoxAmount.Items.Add(element);
+            }
         }
     }
     }

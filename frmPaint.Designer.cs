@@ -211,6 +211,7 @@
             this.Controls.Add(this.btnColorPicker);
             this.Controls.Add(this.canvas);
             this.Name = "frmPaint";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paint";
             this.Load += new System.EventHandler(this.frmPaint_Load);
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();

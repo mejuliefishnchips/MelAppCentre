@@ -5,7 +5,7 @@
 // Software: Microsoft Visual Studio 2019 Community Edition 
 // Platform: Microsoft Windows 10 Professional 64-bit 
 // Purpose: Assignment2 - Paint Application
-// Criteria Shown: Drawing 2D Graphics 
+// Criteria Shown: Drawing 2D Graphics & Drag and Drop Functionality
 // References: Class notes, stackoverflow, scottlily.com, Microsoft Docs
 //**************************************************************** 
 
@@ -229,21 +229,45 @@ namespace MelindaFischerAssessment2
         //event when mouse is released over the form
         private void FrmPaint_DragDrop(object sender, DragEventArgs e)
         {
+            
             string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
 
             foreach (string File in FileList)
                 this.lblFile.Text = File;
 
-            string imageName = lblFile.Text;
 
-            loadImage(imageName);
+            if (IsValidImage(lblFile.Text))
+            {
+                string imageName = lblFile.Text;
+                loadImage(imageName);
+            }
+            else
+                MessageBox.Show("Please drag and drop valid image format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            lblFile.Text = "Drag and Drop Image to set as Background";
         }
 
+        bool IsValidImage(string filename)
+        {
+            try
+            {
+                using (Image newImage = Image.FromFile(filename))
+                { }
+            }
+            catch (OutOfMemoryException ex)
+            {
+                //The file does not have a valid image format.
+                //-or- GDI+ does not support the pixel format of the file
+
+                return false;
+            }
+            return true;
+        }
+     
         private void loadImage(string imageName)
         {
             //reading image location saved through drag and drop and opening it as the canvas
-            //imageBackground = Image.FromFile(imageName);
+            
 
             imageBackground = new Bitmap(imageName);
             h = Graphics.FromImage(imageBackground);

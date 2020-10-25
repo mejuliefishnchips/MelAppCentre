@@ -248,6 +248,17 @@ namespace MelindaFischerAssessment2
         {
             btnOpenAmount.Enabled = false;
         }
+
+        private void mnuAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This Application was developed by Melinda Fischer to meet the criteria for  her C# Assessment2", "About this Application", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void mnuHelp_Click(object sender, EventArgs e)
+        {
+            string filename = "https://tda.edu.au/wp-content/uploads/2020/10/Melindas-Little-App-Centre-Application-Documentation.pdf";
+            System.Diagnostics.Process.Start(filename);
+        }
     }
     }
 
